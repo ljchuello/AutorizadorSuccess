@@ -35,6 +35,8 @@ namespace AutorizadorSuccess
             this.btnProduccion = new MetroFramework.Controls.MetroButton();
             this.btnPrueba = new MetroFramework.Controls.MetroButton();
             this.btnLocal = new MetroFramework.Controls.MetroButton();
+            this.lblResumen = new MetroFramework.Controls.MetroLabel();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -57,12 +59,13 @@ namespace AutorizadorSuccess
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lblResumen);
             this.groupBox3.Location = new System.Drawing.Point(650, 64);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(307, 339);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Text = "Resumen";
             // 
             // btnProduccion
             // 
@@ -94,6 +97,15 @@ namespace AutorizadorSuccess
             this.btnLocal.UseSelectable = true;
             this.btnLocal.Click += new System.EventHandler(this.btnLocal_Click);
             // 
+            // lblResumen
+            // 
+            this.lblResumen.AutoSize = true;
+            this.lblResumen.Location = new System.Drawing.Point(7, 20);
+            this.lblResumen.Name = "lblResumen";
+            this.lblResumen.Size = new System.Drawing.Size(76, 19);
+            this.lblResumen.TabIndex = 0;
+            this.lblResumen.Text = "lblResumen";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,6 +119,8 @@ namespace AutorizadorSuccess
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -119,6 +133,7 @@ namespace AutorizadorSuccess
         private MetroFramework.Controls.MetroButton btnProduccion;
         private MetroFramework.Controls.MetroButton btnPrueba;
         private MetroFramework.Controls.MetroButton btnLocal;
+        private MetroFramework.Controls.MetroLabel lblResumen;
     }
 }
 
