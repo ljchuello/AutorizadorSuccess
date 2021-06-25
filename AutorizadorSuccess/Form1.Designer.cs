@@ -32,15 +32,18 @@ namespace AutorizadorSuccess
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblResumen = new MetroFramework.Controls.MetroLabel();
             this.btnProduccion = new MetroFramework.Controls.MetroButton();
             this.btnPrueba = new MetroFramework.Controls.MetroButton();
             this.btnLocal = new MetroFramework.Controls.MetroButton();
-            this.lblResumen = new MetroFramework.Controls.MetroLabel();
+            this.txtEnviado = new MetroFramework.Controls.MetroTextBox();
+            this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtEnviado);
             this.groupBox1.Location = new System.Drawing.Point(24, 64);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(307, 339);
@@ -66,6 +69,15 @@ namespace AutorizadorSuccess
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Resumen";
+            // 
+            // lblResumen
+            // 
+            this.lblResumen.AutoSize = true;
+            this.lblResumen.Location = new System.Drawing.Point(7, 20);
+            this.lblResumen.Name = "lblResumen";
+            this.lblResumen.Size = new System.Drawing.Size(76, 19);
+            this.lblResumen.TabIndex = 0;
+            this.lblResumen.Text = "lblResumen";
             // 
             // btnProduccion
             // 
@@ -97,14 +109,36 @@ namespace AutorizadorSuccess
             this.btnLocal.UseSelectable = true;
             this.btnLocal.Click += new System.EventHandler(this.btnLocal_Click);
             // 
-            // lblResumen
+            // txtEnviado
             // 
-            this.lblResumen.AutoSize = true;
-            this.lblResumen.Location = new System.Drawing.Point(7, 20);
-            this.lblResumen.Name = "lblResumen";
-            this.lblResumen.Size = new System.Drawing.Size(76, 19);
-            this.lblResumen.TabIndex = 0;
-            this.lblResumen.Text = "lblResumen";
+            // 
+            // 
+            // 
+            this.txtEnviado.CustomButton.Image = null;
+            this.txtEnviado.CustomButton.Location = new System.Drawing.Point(-18, 1);
+            this.txtEnviado.CustomButton.Name = "";
+            this.txtEnviado.CustomButton.Size = new System.Drawing.Size(311, 311);
+            this.txtEnviado.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtEnviado.CustomButton.TabIndex = 1;
+            this.txtEnviado.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtEnviado.CustomButton.UseSelectable = true;
+            this.txtEnviado.CustomButton.Visible = false;
+            this.txtEnviado.Lines = new string[0];
+            this.txtEnviado.Location = new System.Drawing.Point(7, 20);
+            this.txtEnviado.MaxLength = 32767;
+            this.txtEnviado.Multiline = true;
+            this.txtEnviado.Name = "txtEnviado";
+            this.txtEnviado.PasswordChar = '\0';
+            this.txtEnviado.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtEnviado.SelectedText = "";
+            this.txtEnviado.SelectionLength = 0;
+            this.txtEnviado.SelectionStart = 0;
+            this.txtEnviado.ShortcutsEnabled = true;
+            this.txtEnviado.Size = new System.Drawing.Size(294, 313);
+            this.txtEnviado.TabIndex = 0;
+            this.txtEnviado.UseSelectable = true;
+            this.txtEnviado.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtEnviado.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // Form1
             // 
@@ -119,6 +153,7 @@ namespace AutorizadorSuccess
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -134,6 +169,7 @@ namespace AutorizadorSuccess
         private MetroFramework.Controls.MetroButton btnPrueba;
         private MetroFramework.Controls.MetroButton btnLocal;
         private MetroFramework.Controls.MetroLabel lblResumen;
+        private MetroFramework.Controls.MetroTextBox txtEnviado;
     }
 }
 

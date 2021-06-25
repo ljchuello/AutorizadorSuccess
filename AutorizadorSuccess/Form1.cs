@@ -14,7 +14,10 @@ namespace AutorizadorSuccess
         private bool _activo = false;
         private string url = string.Empty;
 
+        private Autorizacion _autorizacion = new Autorizacion();
         private Resumen _resumen = new Resumen();
+
+        private List<Autorizacion> listEnviado = new List<Autorizacion>();
 
         public Form1()
         {
@@ -24,6 +27,7 @@ namespace AutorizadorSuccess
 
             Text = "Mile Autorizador 🤣";
 
+            Enviar();
             Resumen();
         }
 
@@ -55,6 +59,49 @@ namespace AutorizadorSuccess
             btnLocal.Enabled = false;
             btnPrueba.Enabled = false;
             btnProduccion.Enabled = false;
+        }
+
+        #endregion
+
+        #region Enviar
+
+        async Task Enviar()
+        {
+            await Task.Run(async () =>
+            {
+                while (true)
+                {
+                    try
+                    {
+                        // Validamos
+                        if (_activo)
+                        {
+                            // Obtenemos
+                            listEnviado = await _autorizacion.Enviar_Async(url, listEnviado);
+
+                            // string
+                            StringBuilder stringBuilder = new StringBuilder();
+
+                            // Recorremos
+                            foreach (Autorizacion row in listEnviado)
+                            {
+                                stringBuilder.AppendLine($"{row.DateAt}: {row.Descripcion}");
+                            }
+
+                            // Set
+                            txtEnviado.Text = stringBuilder.ToString();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                    finally
+                    {
+                        Thread.Sleep(333);
+                    }
+                }
+            });
         }
 
         #endregion
@@ -95,7 +142,7 @@ namespace AutorizadorSuccess
                     }
                     finally
                     {
-                        Thread.Sleep(2500);
+                        Thread.Sleep(5000);
                     }
                 }
             });
