@@ -72,6 +72,7 @@ namespace AutorizadorSuccess
             this.btnProduccion.TabIndex = 2;
             this.btnProduccion.Text = "Producción";
             this.btnProduccion.UseSelectable = true;
+            this.btnProduccion.Click += new System.EventHandler(this.btnProduccion_Click);
             // 
             // btnPrueba
             // 
@@ -81,6 +82,7 @@ namespace AutorizadorSuccess
             this.btnPrueba.TabIndex = 3;
             this.btnPrueba.Text = "Prueba";
             this.btnPrueba.UseSelectable = true;
+            this.btnPrueba.Click += new System.EventHandler(this.btnPrueba_Click);
             // 
             // btnLocal
             // 
@@ -90,6 +92,7 @@ namespace AutorizadorSuccess
             this.btnLocal.TabIndex = 4;
             this.btnLocal.Text = "Local";
             this.btnLocal.UseSelectable = true;
+            this.btnLocal.Click += new System.EventHandler(this.btnLocal_Click);
             // 
             // Form1
             // 
