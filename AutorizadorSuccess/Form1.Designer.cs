@@ -37,7 +37,9 @@ namespace AutorizadorSuccess
             this.btnPrueba = new MetroFramework.Controls.MetroButton();
             this.btnLocal = new MetroFramework.Controls.MetroButton();
             this.txtEnviado = new MetroFramework.Controls.MetroTextBox();
+            this.txtRecibir = new MetroFramework.Controls.MetroTextBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,16 +51,17 @@ namespace AutorizadorSuccess
             this.groupBox1.Size = new System.Drawing.Size(307, 339);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Enviar";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtRecibir);
             this.groupBox2.Location = new System.Drawing.Point(337, 64);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(307, 339);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Recibir";
             // 
             // groupBox3
             // 
@@ -123,6 +126,7 @@ namespace AutorizadorSuccess
             this.txtEnviado.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtEnviado.CustomButton.UseSelectable = true;
             this.txtEnviado.CustomButton.Visible = false;
+            this.txtEnviado.Enabled = false;
             this.txtEnviado.Lines = new string[0];
             this.txtEnviado.Location = new System.Drawing.Point(7, 20);
             this.txtEnviado.MaxLength = 32767;
@@ -140,6 +144,38 @@ namespace AutorizadorSuccess
             this.txtEnviado.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtEnviado.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // txtRecibir
+            // 
+            // 
+            // 
+            // 
+            this.txtRecibir.CustomButton.Image = null;
+            this.txtRecibir.CustomButton.Location = new System.Drawing.Point(-18, 1);
+            this.txtRecibir.CustomButton.Name = "";
+            this.txtRecibir.CustomButton.Size = new System.Drawing.Size(311, 311);
+            this.txtRecibir.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtRecibir.CustomButton.TabIndex = 1;
+            this.txtRecibir.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtRecibir.CustomButton.UseSelectable = true;
+            this.txtRecibir.CustomButton.Visible = false;
+            this.txtRecibir.Enabled = false;
+            this.txtRecibir.Lines = new string[0];
+            this.txtRecibir.Location = new System.Drawing.Point(6, 20);
+            this.txtRecibir.MaxLength = 32767;
+            this.txtRecibir.Multiline = true;
+            this.txtRecibir.Name = "txtRecibir";
+            this.txtRecibir.PasswordChar = '\0';
+            this.txtRecibir.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtRecibir.SelectedText = "";
+            this.txtRecibir.SelectionLength = 0;
+            this.txtRecibir.SelectionStart = 0;
+            this.txtRecibir.ShortcutsEnabled = true;
+            this.txtRecibir.Size = new System.Drawing.Size(294, 313);
+            this.txtRecibir.TabIndex = 1;
+            this.txtRecibir.UseSelectable = true;
+            this.txtRecibir.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtRecibir.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,6 +190,7 @@ namespace AutorizadorSuccess
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -170,6 +207,7 @@ namespace AutorizadorSuccess
         private MetroFramework.Controls.MetroButton btnLocal;
         private MetroFramework.Controls.MetroLabel lblResumen;
         private MetroFramework.Controls.MetroTextBox txtEnviado;
+        private MetroFramework.Controls.MetroTextBox txtRecibir;
     }
 }
 

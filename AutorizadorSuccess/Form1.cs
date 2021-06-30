@@ -18,6 +18,7 @@ namespace AutorizadorSuccess
         private Resumen _resumen = new Resumen();
 
         private List<Autorizacion> listEnviado = new List<Autorizacion>();
+        private List<Autorizacion> listRecibido = new List<Autorizacion>();
 
         public Form1()
         {
@@ -25,9 +26,10 @@ namespace AutorizadorSuccess
 
             CheckForIllegalCrossThreadCalls = false;
 
-            Text = "Mile Autorizador 🤣";
+            Text = "Mile Autorizador";
 
             Enviar();
+            Recibir();
             Resumen();
         }
 
@@ -90,6 +92,45 @@ namespace AutorizadorSuccess
 
                             // Set
                             txtEnviado.Text = stringBuilder.ToString();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                    finally
+                    {
+                        Thread.Sleep(333);
+                    }
+                }
+            });
+        }
+
+        async Task Recibir()
+        {
+            await Task.Run(async () =>
+            {
+                while (true)
+                {
+                    try
+                    {
+                        // Validamos
+                        if (_activo)
+                        {
+                            // Obtenemos
+                            listRecibido = await _autorizacion.Recibir_Async(url, listRecibido);
+
+                            // string
+                            StringBuilder stringBuilder = new StringBuilder();
+
+                            // Recorremos
+                            foreach (Autorizacion row in listRecibido)
+                            {
+                                stringBuilder.AppendLine($"{row.DateAt}: {row.Descripcion}");
+                            }
+
+                            // Set
+                            txtRecibir.Text = stringBuilder.ToString();
                         }
                     }
                     catch (Exception ex)
