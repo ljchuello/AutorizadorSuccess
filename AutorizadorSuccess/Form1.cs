@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using AutorizadorSuccess.Libreria;
 using MetroFramework.Forms;
 
@@ -19,6 +18,7 @@ namespace AutorizadorSuccess
 
         private List<Autorizacion> listEnviado = new List<Autorizacion>();
         private List<Autorizacion> listRecibido = new List<Autorizacion>();
+        private List<Autorizacion> listCorreo = new List<Autorizacion>();
 
         public Form1()
         {
@@ -31,6 +31,7 @@ namespace AutorizadorSuccess
             Enviar();
             Recibir();
             Resumen();
+            Correos();
         }
 
         #region Botonera
@@ -184,6 +185,49 @@ namespace AutorizadorSuccess
                     finally
                     {
                         Thread.Sleep(5000);
+                    }
+                }
+            });
+        }
+
+        #endregion
+
+        #region Correos
+
+        async Task Correos()
+        {
+            await Task.Run(async () =>
+            {
+                while (true)
+                {
+                    try
+                    {
+                        // Validamos
+                        if (_activo)
+                        {
+                            // Obtenemos
+                            listCorreo = await _autorizacion.Correos_Async(url, listCorreo);
+
+                            // string
+                            StringBuilder stringBuilder = new StringBuilder();
+
+                            // Recorremos
+                            foreach (Autorizacion row in listCorreo)
+                            {
+                                stringBuilder.AppendLine($"{row.DateAt}: {row.Descripcion}");
+                            }
+
+                            // Set
+                            txtCorreos.Text = stringBuilder.ToString();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                    finally
+                    {
+                        Thread.Sleep(333);
                     }
                 }
             });

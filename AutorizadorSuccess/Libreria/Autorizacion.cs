@@ -74,5 +74,36 @@ namespace AutorizadorSuccess.Libreria
                 return list;
             });
         }
+
+        public async Task<List<Autorizacion>> Correos_Async(string url, List<Autorizacion> list)
+        {
+            return await Task.Run(() =>
+            {
+                try
+                {
+                    // Hacemos la petición
+                    RestClient restClient = new RestClient($"{url}api/v2/email-a/");
+                    //restClient.Timeout = -1;
+                    var request = new RestRequest(Method.POST);
+                    IRestResponse response = restClient.Execute(request);
+                    Resultado resultado = JsonConvert.DeserializeObject<Resultado>(response.Content) ?? new Resultado();
+
+                    // Set
+                    list.Add(new Autorizacion { DateAt = DateTime.Now, Descripcion = resultado.Messages });
+
+                    // Sólo lo indicado
+                    list = list.OrderByDescending(x => x.DateAt).Take(Configuracion.CantList).ToList();
+
+                    // Esperamos
+                    Thread.Sleep(resultado.IdleTime * 1000);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+
+                return list;
+            });
+        }
     }
 }
